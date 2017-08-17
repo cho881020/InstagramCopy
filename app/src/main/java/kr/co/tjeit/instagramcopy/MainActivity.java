@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import kr.co.tjeit.instagramcopy.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
@@ -26,6 +27,8 @@ public class MainActivity extends BaseActivity {
     NewsfeedAdapter mNewsfeedAdapter;
     private ListView myPostListView;
     private LinearLayout myProfileLayout;
+    private ImageView titleImg;
+    private android.widget.TextView myProfileTitleTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +47,15 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 if (v.getId() == R.id.tabBtn1) {
 
+                    titleImg.setVisibility(View.VISIBLE);
+                    myProfileTitleTxt.setVisibility(View.GONE);
+
                     // 뉴스피드 레이아웃은 보여주고
                     // 나머지는 숨김.
 
                     newsfeedLayout.setVisibility(View.VISIBLE);
                     myProfileLayout.setVisibility(View.GONE);
+
 
                     tabBtn1.setImageResource(R.drawable.home_fill);
                     tabBtn2.setImageResource(R.drawable.home_empty);
@@ -57,6 +64,8 @@ public class MainActivity extends BaseActivity {
                     tabBtn5.setImageResource(R.drawable.home_empty);
                 } else if (v.getId() == R.id.tabBtn2) {
 
+                    titleImg.setVisibility(View.VISIBLE);
+                    myProfileTitleTxt.setVisibility(View.GONE);
 
                     newsfeedLayout.setVisibility(View.GONE);
                     myProfileLayout.setVisibility(View.GONE);
@@ -68,6 +77,10 @@ public class MainActivity extends BaseActivity {
                     tabBtn5.setImageResource(R.drawable.home_empty);
                 } else if (v.getId() == R.id.tabBtn3) {
 
+
+                    titleImg.setVisibility(View.VISIBLE);
+                    myProfileTitleTxt.setVisibility(View.GONE);
+
                     newsfeedLayout.setVisibility(View.GONE);
                     myProfileLayout.setVisibility(View.GONE);
 
@@ -77,6 +90,10 @@ public class MainActivity extends BaseActivity {
                     tabBtn4.setImageResource(R.drawable.home_empty);
                     tabBtn5.setImageResource(R.drawable.home_empty);
                 } else if (v.getId() == R.id.tabBtn4) {
+
+
+                    titleImg.setVisibility(View.VISIBLE);
+                    myProfileTitleTxt.setVisibility(View.GONE);
 
                     newsfeedLayout.setVisibility(View.GONE);
                     myProfileLayout.setVisibility(View.GONE);
@@ -88,6 +105,10 @@ public class MainActivity extends BaseActivity {
                     tabBtn5.setImageResource(R.drawable.home_empty);
 
                 } else if (v.getId() == R.id.tabBtn5) {
+
+
+                    titleImg.setVisibility(View.GONE);
+                    myProfileTitleTxt.setVisibility(View.VISIBLE);
 
                     newsfeedLayout.setVisibility(View.GONE);
                     myProfileLayout.setVisibility(View.VISIBLE);
@@ -140,6 +161,8 @@ public class MainActivity extends BaseActivity {
         this.myPostListView = (ListView) findViewById(R.id.myPostListView);
         this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
         this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
+        this.myProfileTitleTxt = (TextView) findViewById(R.id.myProfileTitleTxt);
+        this.titleImg = (ImageView) findViewById(R.id.titleImg);
         this.logoutBtn = (Button) findViewById(R.id.logoutBtn);
     }
 }
