@@ -3,6 +3,7 @@ package kr.co.tjeit.instagramcopy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -151,6 +152,15 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+        myNotiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(mContext, ViewPostActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

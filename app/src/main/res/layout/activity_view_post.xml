@@ -153,6 +153,7 @@
                     android:text="designtalksapp DesignTalks is blahblahblahblahblah" />
 
                 <TextView
+                    android:id="@+id/seeAllReplyBtnTxt"
                     android:padding="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

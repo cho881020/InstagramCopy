@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserData implements Serializable {
 
-    // 사용자가 가지는 고유의 속성. => 기본형 변수 + String
+    // 사용자가 가지는 고유의 속성. => 기본형 변수 + String + Calendar
     private int userId; // 데이터베이스와의 연동을 고려한 변수
     private String name; // 사용자의 이름을 저장.
     private String nickName; // 본명보다 닉네임 위주로. 아이디의 개념.
