@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
 
@@ -16,6 +18,8 @@ public class MainActivity extends BaseActivity {
     private ImageView tabBtn3;
     private ImageView tabBtn4;
     private ImageView tabBtn5;
+    private android.widget.ListView newsfeedListView;
+    private android.widget.LinearLayout newsfeedLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,8 @@ public class MainActivity extends BaseActivity {
         this.tabBtn3 = (ImageView) findViewById(R.id.tabBtn3);
         this.tabBtn2 = (ImageView) findViewById(R.id.tabBtn2);
         this.tabBtn1 = (ImageView) findViewById(R.id.tabBtn1);
+        this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
+        this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.logoutBtn = (Button) findViewById(R.id.logoutBtn);
     }
 }

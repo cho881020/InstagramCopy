@@ -2,6 +2,10 @@ package kr.co.tjeit.instagramcopy.util;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.co.tjeit.instagramcopy.data.PostingData;
 import kr.co.tjeit.instagramcopy.data.UserData;
 
 /**
@@ -20,5 +24,6 @@ import kr.co.tjeit.instagramcopy.data.UserData;
 //    3. 로그인 한 사람의 정보를 저장하는 용도.
 public class GlobalData {
 
+    public static List<PostingData> postingDataList = new ArrayList<>();
 
 }
