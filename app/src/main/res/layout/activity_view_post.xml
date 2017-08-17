@@ -91,6 +91,7 @@
                 </LinearLayout>
 
                 <ImageView
+                    tools:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:src="@mipmap/ic_launcher" />
@@ -150,6 +151,13 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="designtalksapp DesignTalks is blahblahblahblahblah" />
+
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="댓글 7개 모두 보기"/>
+
 
 
             </LinearLayout>
