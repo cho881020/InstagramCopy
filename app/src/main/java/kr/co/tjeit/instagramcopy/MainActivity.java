@@ -4,12 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
 
 public class MainActivity extends BaseActivity {
 
     private android.widget.Button logoutBtn;
+    private android.widget.ImageView tabBtn1;
+    private ImageView tabBtn2;
+    private ImageView tabBtn3;
+    private ImageView tabBtn4;
+    private ImageView tabBtn5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,45 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        View.OnClickListener imageSetListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.tabBtn1) {
+                    tabBtn1.setImageResource(R.drawable.home_fill);
+                    tabBtn2.setImageResource(R.drawable.home_empty);
+                    tabBtn3.setImageResource(R.drawable.home_empty);
+                    tabBtn4.setImageResource(R.drawable.home_empty);
+                    tabBtn5.setImageResource(R.drawable.home_empty);
+                }
+                else if (v.getId() == R.id.tabBtn2) {
+
+                    tabBtn2.setImageResource(R.drawable.home_fill);
+                    tabBtn1.setImageResource(R.drawable.home_empty);
+                    tabBtn3.setImageResource(R.drawable.home_empty);
+                    tabBtn4.setImageResource(R.drawable.home_empty);
+                    tabBtn5.setImageResource(R.drawable.home_empty);
+                }
+                else if (v.getId() == R.id.tabBtn3) {
+
+                    tabBtn1.setImageResource(R.drawable.home_empty);
+                }
+                else if (v.getId() == R.id.tabBtn4) {
+                    tabBtn1.setImageResource(R.drawable.home_empty);
+
+                }
+                else if (v.getId() == R.id.tabBtn5)  {
+                    tabBtn1.setImageResource(R.drawable.home_empty);
+                }
+            }
+        };
+
+        tabBtn1.setOnClickListener(imageSetListener);
+        tabBtn2.setOnClickListener(imageSetListener);
+        tabBtn3.setOnClickListener(imageSetListener);
+        tabBtn4.setOnClickListener(imageSetListener);
+        tabBtn5.setOnClickListener(imageSetListener);
+
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +90,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
-
+        this.tabBtn5 = (ImageView) findViewById(R.id.tabBtn5);
+        this.tabBtn4 = (ImageView) findViewById(R.id.tabBtn4);
+        this.tabBtn3 = (ImageView) findViewById(R.id.tabBtn3);
+        this.tabBtn2 = (ImageView) findViewById(R.id.tabBtn2);
+        this.tabBtn1 = (ImageView) findViewById(R.id.tabBtn1);
         this.logoutBtn = (Button) findViewById(R.id.logoutBtn);
     }
 }
