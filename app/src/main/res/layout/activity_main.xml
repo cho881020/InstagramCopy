@@ -67,7 +67,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/home_empty"/>
+            android:src="@drawable/home_fill"/>
 
         <ImageView
             android:id="@+id/tabBtn2"

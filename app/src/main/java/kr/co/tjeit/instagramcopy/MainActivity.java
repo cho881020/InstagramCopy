@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import kr.co.tjeit.instagramcopy.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
+import kr.co.tjeit.instagramcopy.util.GlobalData;
 
 public class MainActivity extends BaseActivity {
 
@@ -20,6 +22,8 @@ public class MainActivity extends BaseActivity {
     private ImageView tabBtn5;
     private android.widget.ListView newsfeedListView;
     private android.widget.LinearLayout newsfeedLayout;
+
+    NewsfeedAdapter mNewsfeedAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (v.getId() == R.id.tabBtn1) {
+
+                    // 뉴스피드 레이아웃은 보여주고
+                    // 나머지는 숨김.
+
+                    newsfeedLayout.setVisibility(View.VISIBLE);
+
                     tabBtn1.setImageResource(R.drawable.home_fill);
                     tabBtn2.setImageResource(R.drawable.home_empty);
                     tabBtn3.setImageResource(R.drawable.home_empty);
@@ -45,22 +55,45 @@ public class MainActivity extends BaseActivity {
                 }
                 else if (v.getId() == R.id.tabBtn2) {
 
-                    tabBtn2.setImageResource(R.drawable.home_fill);
+
+                    newsfeedLayout.setVisibility(View.GONE);
+
                     tabBtn1.setImageResource(R.drawable.home_empty);
+                    tabBtn2.setImageResource(R.drawable.home_fill);
                     tabBtn3.setImageResource(R.drawable.home_empty);
                     tabBtn4.setImageResource(R.drawable.home_empty);
                     tabBtn5.setImageResource(R.drawable.home_empty);
                 }
                 else if (v.getId() == R.id.tabBtn3) {
 
+                    newsfeedLayout.setVisibility(View.GONE);
+
                     tabBtn1.setImageResource(R.drawable.home_empty);
+                    tabBtn2.setImageResource(R.drawable.home_empty);
+                    tabBtn3.setImageResource(R.drawable.home_fill);
+                    tabBtn4.setImageResource(R.drawable.home_empty);
+                    tabBtn5.setImageResource(R.drawable.home_empty);
                 }
                 else if (v.getId() == R.id.tabBtn4) {
+
+                    newsfeedLayout.setVisibility(View.GONE);
+
                     tabBtn1.setImageResource(R.drawable.home_empty);
+                    tabBtn2.setImageResource(R.drawable.home_empty);
+                    tabBtn3.setImageResource(R.drawable.home_empty);
+                    tabBtn4.setImageResource(R.drawable.home_fill);
+                    tabBtn5.setImageResource(R.drawable.home_empty);
 
                 }
                 else if (v.getId() == R.id.tabBtn5)  {
+
+                    newsfeedLayout.setVisibility(View.GONE);
+                    
                     tabBtn1.setImageResource(R.drawable.home_empty);
+                    tabBtn2.setImageResource(R.drawable.home_empty);
+                    tabBtn3.setImageResource(R.drawable.home_empty);
+                    tabBtn4.setImageResource(R.drawable.home_empty);
+                    tabBtn5.setImageResource(R.drawable.home_fill);
                 }
             }
         };
@@ -89,7 +122,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-
+        mNewsfeedAdapter = new NewsfeedAdapter(mContext, GlobalData.postingDataList);
+        newsfeedListView.setAdapter(mNewsfeedAdapter);
     }
 
     @Override
