@@ -2,15 +2,11 @@ package kr.co.tjeit.instagramcopy;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import kr.co.tjeit.instagramcopy.data.UserData;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
-import kr.co.tjeit.instagramcopy.util.GlobalData;
 
 public class SplashActivity extends BaseActivity {
 
@@ -22,9 +18,9 @@ public class SplashActivity extends BaseActivity {
         setupEvents();
         setValues();
 
-        UserData loginUserData = ContextUtil.getLoginUserData(mContext);
-        Log.d("로그인한사람의 ID" , loginUserData.getUserId()+"");
-        Log.d("로그인 유져의 이름", loginUserData.getName());
+//        UserData loginUserData = ContextUtil.getUserData(mContext);
+//        Log.d("로그인한사람의 ID" , loginUserData.getUserId()+"");
+//        Log.d("로그인 유져의 이름", loginUserData.getName());
 
     }
 
@@ -57,7 +53,7 @@ public class SplashActivity extends BaseActivity {
                 // 왜? 상황에 따라 목적지가 달라질 수 있으므로.
                 Intent intent;
 
-                UserData tempData = ContextUtil.getLoginUserData(mContext);
+                UserData tempData = ContextUtil.getUserData(mContext);
                 if (tempData == null) {
                     // 로그인이 안되어있는 상황
                     intent = new Intent(mContext, LoginActivity.class);

@@ -6,7 +6,6 @@ import android.widget.Button;
 
 import kr.co.tjeit.instagramcopy.data.UserData;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
-import kr.co.tjeit.instagramcopy.util.ContextUtil2;
 
 public class LoginActivity extends BaseActivity {
 
@@ -27,10 +26,10 @@ public class LoginActivity extends BaseActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserData myData = new UserData(10, "조경진", "0ilgu", "임시데이터");
+                UserData myData = new UserData(542, "아이유", "iu", "아이유사진경로");
 
                 // ContextUtil을 이용해서 저장.
-                ContextUtil2.setLoginUser(mContext, myData);
+                ContextUtil.setLoginUser(mContext, myData);
 
             }
         });
