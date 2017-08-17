@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import kr.co.tjeit.instagramcopy.data.UserData;
+import kr.co.tjeit.instagramcopy.util.ContextUtil;
 import kr.co.tjeit.instagramcopy.util.GlobalData;
 
 public class SplashActivity extends BaseActivity {
@@ -18,6 +21,11 @@ public class SplashActivity extends BaseActivity {
         bindViews();
         setupEvents();
         setValues();
+
+        UserData loginUserData = ContextUtil.getLoginUserData(mContext);
+        Log.d("로그인한사람의 ID" , loginUserData.getUserId()+"");
+        Log.d("로그인 유져의 이름", loginUserData.getName());
+
     }
 
     @Override
@@ -49,16 +57,16 @@ public class SplashActivity extends BaseActivity {
                 // 왜? 상황에 따라 목적지가 달라질 수 있으므로.
                 Intent intent;
 
-                // 로그인 여부를 GlobalData클래스에게 물어봄.
-                // => 이미 사전작업이 되어있다.
-                if (GlobalData.isLogin()) {
-                    // 로그인 되어있다면, Main
-                    intent = new Intent(mContext, MainActivity.class);
-                }
-                else {
-                    // 그렇지 않다면, Login
+                UserData tempData = ContextUtil.getLoginUserData(mContext);
+                if (tempData == null) {
+                    // 로그인이 안되어있는 상황
                     intent = new Intent(mContext, LoginActivity.class);
                 }
+                else {
+                    intent = new Intent(mContext, MainActivity.class);
+                }
+
+
                 // 상황에따라 만들어진 intent를 실제로 실행
                 startActivity(intent);
                 // 스플래쉬 화면을 종료

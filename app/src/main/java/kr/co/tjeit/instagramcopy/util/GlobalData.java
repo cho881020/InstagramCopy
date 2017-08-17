@@ -1,5 +1,7 @@
 package kr.co.tjeit.instagramcopy.util;
 
+import android.content.Context;
+
 import kr.co.tjeit.instagramcopy.data.UserData;
 
 /**
@@ -17,17 +19,6 @@ import kr.co.tjeit.instagramcopy.data.UserData;
 
 //    3. 로그인 한 사람의 정보를 저장하는 용도.
 public class GlobalData {
-
-//    앱에 로그인한 사람의 정보를 저장해두는 변수.
-//    null일 경우엔 비로그인상태, 객체가 들어있으면 로그인한 상태.
-//    cf. 만약 로그아웃을 구현한다면 이 객체를 다시 null로 세팅.
-    public static UserData loginUserData = null;
-
-//    앱이 로그인 모드인지 판별하는 메쏘드.
-//    null이라면 false (비로그인), 아니라면 true (로그인)
-    public static boolean isLogin() {
-        return loginUserData != null;
-    }
 
 
 }
