@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.tjeit.instagramcopy.data.NotificationData;
 import kr.co.tjeit.instagramcopy.data.PostingData;
 import kr.co.tjeit.instagramcopy.data.UserData;
 
@@ -25,5 +26,6 @@ import kr.co.tjeit.instagramcopy.data.UserData;
 public class GlobalData {
 
     public static List<PostingData> postingDataList = new ArrayList<>();
+    public static List<NotificationData> myNotiDataList = new ArrayList<>();
 
 }

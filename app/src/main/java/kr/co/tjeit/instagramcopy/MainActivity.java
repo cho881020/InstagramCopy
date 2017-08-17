@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import kr.co.tjeit.instagramcopy.adapter.NewsfeedAdapter;
+import kr.co.tjeit.instagramcopy.adapter.NotificationAdapter;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
 import kr.co.tjeit.instagramcopy.util.GlobalData;
 
@@ -29,6 +30,9 @@ public class MainActivity extends BaseActivity {
     private LinearLayout myProfileLayout;
     private ImageView titleImg;
     private android.widget.TextView myProfileTitleTxt;
+    private ListView myNotiListView;
+    private LinearLayout activityLayout;
+    NotificationAdapter myNotiAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class MainActivity extends BaseActivity {
                     // 나머지는 숨김.
 
                     newsfeedLayout.setVisibility(View.VISIBLE);
+                    activityLayout.setVisibility(View.GONE);
                     myProfileLayout.setVisibility(View.GONE);
 
 
@@ -65,6 +70,7 @@ public class MainActivity extends BaseActivity {
                 } else if (v.getId() == R.id.tabBtn2) {
 
                     titleImg.setVisibility(View.VISIBLE);
+                    activityLayout.setVisibility(View.GONE);
                     myProfileTitleTxt.setVisibility(View.GONE);
 
                     newsfeedLayout.setVisibility(View.GONE);
@@ -79,6 +85,7 @@ public class MainActivity extends BaseActivity {
 
 
                     titleImg.setVisibility(View.VISIBLE);
+                    activityLayout.setVisibility(View.GONE);
                     myProfileTitleTxt.setVisibility(View.GONE);
 
                     newsfeedLayout.setVisibility(View.GONE);
@@ -93,6 +100,7 @@ public class MainActivity extends BaseActivity {
 
 
                     titleImg.setVisibility(View.VISIBLE);
+                    activityLayout.setVisibility(View.VISIBLE);
                     myProfileTitleTxt.setVisibility(View.GONE);
 
                     newsfeedLayout.setVisibility(View.GONE);
@@ -108,6 +116,7 @@ public class MainActivity extends BaseActivity {
 
 
                     titleImg.setVisibility(View.GONE);
+                    activityLayout.setVisibility(View.GONE);
                     myProfileTitleTxt.setVisibility(View.VISIBLE);
 
                     newsfeedLayout.setVisibility(View.GONE);
@@ -148,6 +157,9 @@ public class MainActivity extends BaseActivity {
     public void setValues() {
         mNewsfeedAdapter = new NewsfeedAdapter(mContext, GlobalData.postingDataList);
         newsfeedListView.setAdapter(mNewsfeedAdapter);
+
+        myNotiAdapter = new NotificationAdapter(mContext, GlobalData.myNotiDataList);
+        myNotiListView.setAdapter(myNotiAdapter);
     }
 
     @Override
@@ -159,6 +171,8 @@ public class MainActivity extends BaseActivity {
         this.tabBtn1 = (ImageView) findViewById(R.id.tabBtn1);
         this.myProfileLayout = (LinearLayout) findViewById(R.id.myProfileLayout);
         this.myPostListView = (ListView) findViewById(R.id.myPostListView);
+        this.activityLayout = (LinearLayout) findViewById(R.id.activityLayout);
+        this.myNotiListView = (ListView) findViewById(R.id.myNotiListView);
         this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
         this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.myProfileTitleTxt = (TextView) findViewById(R.id.myProfileTitleTxt);

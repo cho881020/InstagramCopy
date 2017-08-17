@@ -52,11 +52,15 @@
         android:layout_weight="1">
 
         <LinearLayout
-            android:visibility="visible"
             android:id="@+id/newsfeedLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:visibility="gone">
+
+            <!-- tools:visibility 는 preview에만 반영. -->
+
 
             <ListView
                 android:id="@+id/newsfeedListView"
@@ -66,23 +70,92 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/myProfileLayout"
-            android:visibility="gone"
+            android:id="@+id/activityLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:orientation="vertical">
+
+            <!--tools의 visibility를 나타냄으로써-->
+            <!--작업의 편리함을 챙김-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FOLLOWING"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="YOU"
+                        android:textColor="#5DA1E0"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#5DA1E0"
+                        android:layout_gravity="bottom"/>
+
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_line"/>
+
+            <ListView
+                android:id="@+id/myNotiListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myProfileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10dp">
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@mipmap/ic_launcher_round"/>
+                    android:src="@mipmap/ic_launcher_round" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -106,13 +179,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="143"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"/>
-                            
+                                android:textSize="20sp" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="posts"/>
-                            
+                                android:text="posts" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -127,12 +200,12 @@
                                 android:layout_height="wrap_content"
                                 android:text="680"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"/>
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="followers"/>
+                                android:text="followers" />
 
                         </LinearLayout>
 
@@ -148,12 +221,12 @@
                                 android:layout_height="wrap_content"
                                 android:text="137"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"/>
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="following"/>
+                                android:text="following" />
 
                         </LinearLayout>
 
@@ -163,7 +236,7 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile"/>
+                        android:text="Edit Profile" />
 
                 </LinearLayout>
 
@@ -174,24 +247,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="사람이름이표기될자리"/>
 
                 <TextView
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="사람의 소개 글이 들어올 자리입니다."/>
+                    android:text="사람이름이표기될자리"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#3984C8"
-                    android:text="apple.co"/>
+                    android:layout_marginTop="10dp"
+                    android:text="사람의 소개 글이 들어올 자리입니다." />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="apple.co"
+                    android:textColor="#3984C8" />
 
             </LinearLayout>
 
@@ -199,7 +273,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -210,47 +284,47 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/divider_line"/>
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/divider_line" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/divider_line"/>
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/divider_line" />
 
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/divider_line"/>
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/divider_line" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
             </LinearLayout>
 
