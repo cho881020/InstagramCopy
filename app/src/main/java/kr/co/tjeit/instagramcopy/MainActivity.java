@@ -24,6 +24,8 @@ public class MainActivity extends BaseActivity {
     private android.widget.LinearLayout newsfeedLayout;
 
     NewsfeedAdapter mNewsfeedAdapter;
+    private ListView myPostListView;
+    private LinearLayout myProfileLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,37 +48,38 @@ public class MainActivity extends BaseActivity {
                     // 나머지는 숨김.
 
                     newsfeedLayout.setVisibility(View.VISIBLE);
+                    myProfileLayout.setVisibility(View.GONE);
 
                     tabBtn1.setImageResource(R.drawable.home_fill);
                     tabBtn2.setImageResource(R.drawable.home_empty);
                     tabBtn3.setImageResource(R.drawable.home_empty);
                     tabBtn4.setImageResource(R.drawable.home_empty);
                     tabBtn5.setImageResource(R.drawable.home_empty);
-                }
-                else if (v.getId() == R.id.tabBtn2) {
+                } else if (v.getId() == R.id.tabBtn2) {
 
 
                     newsfeedLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
 
                     tabBtn1.setImageResource(R.drawable.home_empty);
                     tabBtn2.setImageResource(R.drawable.home_fill);
                     tabBtn3.setImageResource(R.drawable.home_empty);
                     tabBtn4.setImageResource(R.drawable.home_empty);
                     tabBtn5.setImageResource(R.drawable.home_empty);
-                }
-                else if (v.getId() == R.id.tabBtn3) {
+                } else if (v.getId() == R.id.tabBtn3) {
 
                     newsfeedLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
 
                     tabBtn1.setImageResource(R.drawable.home_empty);
                     tabBtn2.setImageResource(R.drawable.home_empty);
                     tabBtn3.setImageResource(R.drawable.home_fill);
                     tabBtn4.setImageResource(R.drawable.home_empty);
                     tabBtn5.setImageResource(R.drawable.home_empty);
-                }
-                else if (v.getId() == R.id.tabBtn4) {
+                } else if (v.getId() == R.id.tabBtn4) {
 
                     newsfeedLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
 
                     tabBtn1.setImageResource(R.drawable.home_empty);
                     tabBtn2.setImageResource(R.drawable.home_empty);
@@ -84,11 +87,11 @@ public class MainActivity extends BaseActivity {
                     tabBtn4.setImageResource(R.drawable.home_fill);
                     tabBtn5.setImageResource(R.drawable.home_empty);
 
-                }
-                else if (v.getId() == R.id.tabBtn5)  {
+                } else if (v.getId() == R.id.tabBtn5) {
 
                     newsfeedLayout.setVisibility(View.GONE);
-                    
+                    myProfileLayout.setVisibility(View.VISIBLE);
+
                     tabBtn1.setImageResource(R.drawable.home_empty);
                     tabBtn2.setImageResource(R.drawable.home_empty);
                     tabBtn3.setImageResource(R.drawable.home_empty);
@@ -133,6 +136,8 @@ public class MainActivity extends BaseActivity {
         this.tabBtn3 = (ImageView) findViewById(R.id.tabBtn3);
         this.tabBtn2 = (ImageView) findViewById(R.id.tabBtn2);
         this.tabBtn1 = (ImageView) findViewById(R.id.tabBtn1);
+        this.myProfileLayout = (LinearLayout) findViewById(R.id.myProfileLayout);
+        this.myPostListView = (ListView) findViewById(R.id.myPostListView);
         this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
         this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.logoutBtn = (Button) findViewById(R.id.logoutBtn);
