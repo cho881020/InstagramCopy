@@ -47,6 +47,15 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        newsfeedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent myIntent = new Intent(mContext, ViewPostActivity.class);
+                myIntent.putExtra("postingData", GlobalData.postingDataList.get(position));
+                startActivity(myIntent);
+            }
+        });
+
         View.OnClickListener imageSetListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,6 +166,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(mContext, ViewPostActivity.class);
+                intent.putExtra("postingData", GlobalData.myNotiDataList.get(position).getPost());
                 startActivity(intent);
             }
         });

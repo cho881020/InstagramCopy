@@ -3,6 +3,7 @@ package kr.co.tjeit.instagramcopy.util;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import kr.co.tjeit.instagramcopy.data.NotificationData;
@@ -63,7 +64,22 @@ public class GlobalData {
 
 //        알림 데이터 채워넣기.
         myNotiDataList.clear();
-        myNotiDataList.add(new NotificationData());
+        myNotiDataList.add(new NotificationData(1, Calendar.getInstance(),
+                "like", userDataList.get(0), postingDataList.get(0)));
+        myNotiDataList.add(new NotificationData(2, Calendar.getInstance(),
+                "like", userDataList.get(1), postingDataList.get(1)));
+        myNotiDataList.add(new NotificationData(3, Calendar.getInstance(),
+                "reply", userDataList.get(2), postingDataList.get(2)));
+        myNotiDataList.add(new NotificationData(4, Calendar.getInstance(),
+                "like", userDataList.get(3), postingDataList.get(3)));
+        myNotiDataList.add(new NotificationData(5, Calendar.getInstance(),
+                "like", userDataList.get(4), postingDataList.get(4)));
+        myNotiDataList.add(new NotificationData(6, Calendar.getInstance(),
+                "reply", userDataList.get(5), postingDataList.get(5)));
+        myNotiDataList.add(new NotificationData(7, Calendar.getInstance(),
+                "reply", userDataList.get(6), postingDataList.get(0)));
+        myNotiDataList.add(new NotificationData(8, Calendar.getInstance(),
+                "like", userDataList.get(7), postingDataList.get(1)));
 
     }
 

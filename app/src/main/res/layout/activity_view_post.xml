@@ -72,6 +72,7 @@
                         android:src="@mipmap/ic_launcher_round" />
 
                     <TextView
+                        android:id="@+id/writerNickNameTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -147,6 +148,7 @@
                     android:text="j_hyun님 외 9명이 좋아합니다."/>
 
                 <TextView
+                    android:id="@+id/contentTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

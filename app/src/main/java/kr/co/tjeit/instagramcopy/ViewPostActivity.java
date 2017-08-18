@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import kr.co.tjeit.instagramcopy.data.PostingData;
+
 public class ViewPostActivity extends BaseActivity {
 
     private android.widget.ImageView backBtn;
@@ -14,10 +16,15 @@ public class ViewPostActivity extends BaseActivity {
     private android.widget.ImageView replyBtnImg;
     private android.widget.TextView seeAllReplyBtnTxt;
 
+    PostingData mPostingData = null;
+    private TextView writerNickNameTxt;
+    private TextView contentTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_post);
+        mPostingData = (PostingData) getIntent().getSerializableExtra("postingData");
         bindViews();
         setupEvents();
         setValues();
@@ -52,13 +59,18 @@ public class ViewPostActivity extends BaseActivity {
     @Override
     public void setValues() {
 
+        writerNickNameTxt.setText(mPostingData.getWriterData().getNickName());
+        contentTxt.setText(mPostingData.getContent());
+
     }
 
     @Override
     public void bindViews() {
 
         this.seeAllReplyBtnTxt = (TextView) findViewById(R.id.seeAllReplyBtnTxt);
+        this.contentTxt = (TextView) findViewById(R.id.contentTxt);
         this.replyBtnImg = (ImageView) findViewById(R.id.replyBtnImg);
+        this.writerNickNameTxt = (TextView) findViewById(R.id.writerNickNameTxt);
         this.refreshBtn = (ImageView) findViewById(R.id.refreshBtn);
         this.backBtn = (ImageView) findViewById(R.id.backBtn);
     }
