@@ -7,6 +7,7 @@ import android.util.Log;
 
 import kr.co.tjeit.instagramcopy.data.UserData;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
+import kr.co.tjeit.instagramcopy.util.GlobalData;
 
 public class SplashActivity extends BaseActivity {
 
@@ -88,7 +89,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-
+        GlobalData.initGlobalData();
     }
 
     @Override

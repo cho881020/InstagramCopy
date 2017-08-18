@@ -46,8 +46,30 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
             row = inf.inflate(R.layout.newsfeed_list_item, null);
         }
 
+//        (1) 데이터를 찍어주려면, 일단 데이터를 가져오기 부터.
+//        가져온다 : mList => get으로 빼내자. 몇번째를? position이 알려줌.
+//        빼낼때 변수로 저장. 변수 형태: 어댑터에서 다루는 자료형.
+
+        PostingData data = mList.get(position);
+
+//        (2) 자료를 빼낸 후에, 반영할 뷰 들을 바인딩.
+//        바인딩 : findViewById로 묶어주는 행동.
+
+        TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
+        TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
         ImageView replyBtnImg = (ImageView) row.findViewById(R.id.replyBtnImg);
 
+//        (3) 표시할 데이터 세팅.
+//        1. TextView에게 setText ★
+//        2. ImageView Glide활용해서 이미지 세팅 (이번 예제에서는 이미지 X)
+
+//        게시글의 내용을 작성.
+        contentTxt.setText(data.getContent());
+
+//        게시글의 작성자의 닉네임을 작성.
+        writerNickNameTxt.setText(data.getWriterData().getNickName());
+
+//        (4) 버튼들이 눌리면 처리할 이벤트.
         replyBtnImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,8 +81,4 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
         return row;
     }
 
-    @Override
-    public int getCount() {
-        return 20;
-    }
 }
