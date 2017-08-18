@@ -8,6 +8,7 @@ import java.util.List;
 
 import kr.co.tjeit.instagramcopy.data.NotificationData;
 import kr.co.tjeit.instagramcopy.data.PostingData;
+import kr.co.tjeit.instagramcopy.data.ReplyData;
 import kr.co.tjeit.instagramcopy.data.UserData;
 
 /**
@@ -50,8 +51,32 @@ public class GlobalData {
         postingDataList.clear();
         postingDataList.add(new PostingData(1, "TempURL",
                 "1번 게시글입니다.", userDataList.get(0)));
+
+//        첫 게시글의 댓글 채워넣기.
+        postingDataList.get(0).getReplies().add(new ReplyData(1, "1번게시글 1번댓글",
+                Calendar.getInstance(), userDataList.get(0), -1));
+        postingDataList.get(0).getReplies().add(new ReplyData(2, "1번게시글 2번댓글",
+                Calendar.getInstance(), userDataList.get(3), -1));
+        postingDataList.get(0).getReplies().add(new ReplyData(3, "1번게시글 3번댓글",
+                Calendar.getInstance(), userDataList.get(3), -1));
+        postingDataList.get(0).getReplies().add(new ReplyData(4, "1번게시글 4번댓글",
+                Calendar.getInstance(), userDataList.get(0), -1));
+        postingDataList.get(0).getReplies().add(new ReplyData(5, "1번게시글 5번댓글",
+                Calendar.getInstance(), userDataList.get(1), -1));
+
         postingDataList.add(new PostingData(2, "TempURL",
                 "2번 게시글입니다.", userDataList.get(1)));
+
+
+        postingDataList.get(1).getReplies().add(new ReplyData(6, "2번게시글 1번댓글",
+                Calendar.getInstance(), userDataList.get(1), -1));
+        postingDataList.get(1).getReplies().add(new ReplyData(7, "2번게시글 2번댓글",
+                Calendar.getInstance(), userDataList.get(6), -1));
+        postingDataList.get(1).getReplies().add(new ReplyData(8, "2번게시글 3번댓글",
+                Calendar.getInstance(), userDataList.get(7), -1));
+        postingDataList.get(1).getReplies().add(new ReplyData(9, "2번게시글 4번댓글",
+                Calendar.getInstance(), userDataList.get(4), -1));
+
         postingDataList.add(new PostingData(3, "TempURL",
                 "3번 게시글입니다.", userDataList.get(2)));
         postingDataList.add(new PostingData(4, "TempURL",
@@ -61,6 +86,7 @@ public class GlobalData {
         postingDataList.add(new PostingData(6, "TempURL",
                 "6번 게시글입니다.", userDataList.get(5)));
 //        하나 추가해보니 사용자 데이터도 만들어줘야함.
+
 
 //        알림 데이터 채워넣기.
         myNotiDataList.clear();

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import kr.co.tjeit.instagramcopy.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instagramcopy.adapter.NotificationAdapter;
+import kr.co.tjeit.instagramcopy.data.PostingData;
 import kr.co.tjeit.instagramcopy.util.ContextUtil;
 import kr.co.tjeit.instagramcopy.util.GlobalData;
 

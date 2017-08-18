@@ -23,7 +23,7 @@ public class PostingData implements Serializable {
     // 게시글 -> 좋아한 사람들 (N)
     private List<UserData> likeUsers = new ArrayList<>();
     // 게시글 -> 댓글 (N)
-    // TODO 댓글 데이터 정리되면 추가해야함.
+    private List<ReplyData> replies = new ArrayList<>();
     // 게시글 -> 해시태그 (N)
     private List<String> hashTags = new ArrayList<>();
 
@@ -83,6 +83,14 @@ public class PostingData implements Serializable {
 
     public void setHashTags(List<String> hashTags) {
         this.hashTags = hashTags;
+    }
+
+    public List<ReplyData> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<ReplyData> replies) {
+        this.replies = replies;
     }
 }
 
