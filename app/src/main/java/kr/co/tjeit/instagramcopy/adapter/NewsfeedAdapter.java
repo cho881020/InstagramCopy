@@ -50,7 +50,7 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
 //        가져온다 : mList => get으로 빼내자. 몇번째를? position이 알려줌.
 //        빼낼때 변수로 저장. 변수 형태: 어댑터에서 다루는 자료형.
 
-        PostingData data = mList.get(position);
+        final PostingData data = mList.get(position);
 
 //        (2) 자료를 빼낸 후에, 반영할 뷰 들을 바인딩.
 //        바인딩 : findViewById로 묶어주는 행동.
@@ -74,6 +74,7 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ReplyListActivity.class);
+                intent.putExtra("포스트", data);
                 mContext.startActivity(intent);
             }
         });

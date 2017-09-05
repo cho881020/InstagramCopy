@@ -32,13 +32,16 @@ public class ViewPostActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
-        seeAllReplyBtnTxt.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener replyListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ReplyListActivity.class);
+                intent.putExtra("포스트", mPostingData);
                 startActivity(intent);
             }
-        });
+        };
+        replyBtnImg.setOnClickListener(replyListener);
+        seeAllReplyBtnTxt.setOnClickListener(replyListener);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

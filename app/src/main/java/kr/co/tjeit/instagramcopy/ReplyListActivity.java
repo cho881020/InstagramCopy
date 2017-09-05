@@ -7,18 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.tjeit.instagramcopy.adapter.ReplyAdapter;
+import kr.co.tjeit.instagramcopy.data.PostingData;
 import kr.co.tjeit.instagramcopy.data.ReplyData;
 
 public class ReplyListActivity extends BaseActivity {
 
     private android.widget.ListView replyListView;
-    List<ReplyData> replyDataList = new ArrayList<>();
     ReplyAdapter mAdapter;
+
+    PostingData mPostingData = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reply_list);
+        mPostingData = (PostingData) getIntent().getSerializableExtra("포스트");
         bindViews();
         setupEvents();
         setValues();
@@ -31,7 +35,7 @@ public class ReplyListActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-        mAdapter = new ReplyAdapter(mContext, replyDataList);
+        mAdapter = new ReplyAdapter(mContext, mPostingData.getReplies());
         replyListView.setAdapter(mAdapter);
     }
 
